@@ -1,9 +1,11 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main()
 {
+    freopen("a.in", "r", stdin);
+
     int t;
     cin >> t;
     for (int i = 0; i < t; i++)
@@ -12,27 +14,13 @@ int main()
         cin >> n;
 
         int cnt = 0;
-        for (int k = 0; k < n; k++)
-        {
-            if (k < 9)
+        for (int x = 1; x < 10; x++) for (int y = 1; y <= 111111111; y = y * 10 + 1)
             {
-                cnt++;
-                continue;
+                if (x * y <= n) cnt++;
+                else break;
             }
 
-            int length = 7;
-            for (int x = 11; length > 0; length--)
-            {
-                if (k % x == 0)
-                {
-                    cnt++;
-                    break;
-                }
-                x = x * 10 + 1;
-            }
-        }
-
-        cout << cnt << endl;
+        cout << cnt << '\n';
     }
 
     return 0;
